@@ -2,6 +2,8 @@
 const express = require('express');
 const port = 3000;
 
+const skillsRouter = require('./routes/skills');
+
 // Create our express app
 const app = express();
 
@@ -16,6 +18,9 @@ app.set('view engine', 'ejs');
 app.get('/', function(req, res) {
     res.render('index');
 });
+
+// all routes pertaining to /skills
+app.use('/skills', skillsRouter);
 
 // tell the app to listen
 app.listen(port, function () {
