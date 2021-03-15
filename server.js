@@ -13,8 +13,9 @@ app.set('view engine', 'ejs');
 
 
 // mount our routes
-
-
+app.get('/', function(req, res) {
+    res.render('index');
+});
 
 // tell the app to listen
 app.listen(port, function () {
