@@ -1,18 +1,22 @@
-  
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
-    <title>Express To-Do</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Developer Skills</title>
+  </head>
+  <body>
     <h1>New Skill</h1>
     <form action="/skills" method="POST" autocomplete="off">
-      <input type="text" name="text">
+      <input type="text" name="text" />
       <button type="submit">Save Skill</button>
     </form>
-   </body>
+    <a button class="btn" href="/skills/"><i class="fa fa-code"></i> Skills</button></a>
+  </body>
 </html>

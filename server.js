@@ -39,7 +39,7 @@ app.use((req, res, next) => {
 })
 // morgan for logging
 app.use(morgan("dev"))
-// urlecoded into order to receive data from forms
+// urlencoded into order to receive data from forms
 app.use(express.urlencoded({extended: false}))
 // serves the public folder as static
 app.use(express.static("public"))

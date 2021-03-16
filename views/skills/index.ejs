@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="/style.css" />
     <title>Dev Skills</title>
-</head>
-<body>
-
-    <h1>Here are my skills</h1>
+  </head>
+  <body>
+    <h1>Skills Acquired Thus Far...</h1>
     <ul>
       <% skills.forEach(function(skill, idx) { %>
-        <li>
-          <form action="/skills/<%= idx %>?_method=DELETE"
-            class="delete-form" method="POST">
-            <button type="submit">X</button>
-          </form>
-          <a href="/skills/<%= idx %>"><%= skill.text %></a>
-            - 
-          <%= skill.done ? 'Done' : 'Not done' %>
-        </li>
+      <li>
+        <form
+          action="/skills/<%= idx %>?_method=DELETE"
+          class="delete-form"
+          method="POST"
+        >
+          <button type="submit">X</button>
+        </form>
+        <a href="/skills/<%= idx %>"><%= skill.text %></a>
+      </li>
       <% }); %>
     </ul>
     <a href="/skills/new">Add Skill</a>
-</body>
+  </body>
 </html>
