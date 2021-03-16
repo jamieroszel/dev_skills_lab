@@ -1,28 +1,65 @@
-// require our modules and declare our settings variables 
-const express = require('express');
-const port = 3000;
+//************************** */
+// IMPORTING DEPENDENCIES
+//************************** */
 
-const skillsRouter = require('./routes/skills');
+// import express
+const express = require("express")
+//import the route
+const indexRouter = require("./routes/index")
+const skillsRouter = require("./routes/skills")
+// import morgan
+const morgan = require("morgan")
+// import method-override
+const methodOverride = require("method-override")
 
-// Create our express app
-const app = express();
+//************************** */
+// Create Application Object
+//************************** */
 
-// configure server settings with app.set()
-app.set('view engine', 'ejs');
+// generate app object
+const app = express()
 
-// mount our middleware with app.use()
+//************************** */
+// Set View Engine
+//************************** */
+//configure ejs
+app.set("view engine", "ejs")
+
+//************************** */
+// Middleware
+//************************** */
+// custom middle ware for getting current time
+app.use((req, res, next) => {
+    // Logging some text
+    console.log("Hello Intrepid Learner")
+    //add a time property to the request object
+    req.time = new Date().toLocaleTimeString()
+    // go to next middleware function
+    next()
+})
+// morgan for logging
+app.use(morgan("dev"))
+// urlecoded into order to receive data from forms
+app.use(express.urlencoded({extended: false}))
+// serves the public folder as static
+app.use(express.static("public"))
+// enable method override
+app.use(methodOverride("_method"))
+
+
+//************************** */
+// Routing
+//************************** */
+
+//routes
+app.use("/", indexRouter)
+app.use("/skills", skillsRouter)
 
 
 
-// mount our routes
-app.get('/', function(req, res) {
-    res.render('index');
-});
+//************************** */
+// Listener
+//************************** */
 
-// all routes pertaining to /skills
-app.use('/skills', skillsRouter);
-
-// tell the app to listen
-app.listen(port, function () {
-    console.log(`Express is listening on port:${port}`);
-});
+// tell the app to listen on port 3000
+app.listen(3000, () => console.log("listening on port 3000"))

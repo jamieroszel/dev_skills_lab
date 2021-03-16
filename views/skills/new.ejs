@@ -1,3 +1,4 @@
+  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,10 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
-    <title>Dev Skills</title>
+    <title>Express To-Do</title>
 </head>
 <body>
-    <h1> Here are my skills </h1>
-    <a href="/skills">List of Skills</a>
-</body>
+    <h1>New Skill</h1>
+    <form action="/skills" method="POST" autocomplete="off">
+      <input type="text" name="text">
+      <button type="submit">Save Skill</button>
+    </form>
+   </body>
 </html>

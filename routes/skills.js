@@ -1,15 +1,30 @@
-// require express
-const express = require('express');
+//************************** */
+// Create a New Router
+//************************** */
+const express = require("express")
 const router = express.Router();
-const skillsCtrl = require('../controllers/skills')
 
-// initialize a router object
-// require the controller module
+//************************** */
+// Import Model
+//************************** */
+const skillsCtrl = require("../controllers/skills")
 
-// define our routes
+//************************** */
+// Routes
+//************************** */
+// get request to /skills
+router.get("/", skillsCtrl.index)
+// get request to /skills/new
+router.get("/new", skillsCtrl.new)
+// get request to /skills/1, /skills/2, etc.
+router.get("/:id", skillsCtrl.show)
+// post request to /skills/
+router.post("/", skillsCtrl.create)
+// delete request to /skills/:id
+router.delete("/:id", skillsCtrl.delete)
 
-// all routes in this module start at /skills
-router.get('/', skillsCtrl.index);
+//************************** */
+// Export Router
+//************************** */
 
-// export the router object
 module.exports = router;
